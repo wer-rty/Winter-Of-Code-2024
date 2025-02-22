@@ -18,6 +18,9 @@ namespace SastImg.Client.Views
             string username = UsernameTextBox.Text;
             string password = PasswordBox.Password;
             string confirmPassword = ConfirmPasswordBox.Password;
+            string code = CodeBox.Text;
+
+
 
             // 验证输入
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
@@ -31,9 +34,15 @@ namespace SastImg.Client.Views
                 ShowError("密码和确认密码不一致");
                 return;
             }
+            if (string.IsNullOrEmpty(code) || code.Length != 6)
+            {
+                ShowError("请输入有效的六位验证码");
+                return;
+            }
+
 
             // 调用注册 API
-            var result = await App.API!.Account.RegisterAsync(new() { Username = username, Password = password });
+            var result = await App.API!.Account.RegisterAsync(new() { Username = username, Password = password, Code= int.Parse(code) });
             if (result.IsSuccessStatusCode)
             {
                 // 注册成功后自动登录

@@ -22,23 +22,6 @@
 				</DataTemplate>
 			</ListView.ItemTemplate>
 		</ListView>
-        <Button
-            Content="上传图片"
-            Click="UploadButton_Click"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            Margin="16" />
-        <Button
-            Content="创建相册"
-            Click="CreateAlbumButton_Click"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            Margin="16,80,16,16" />
-        <Button
-            Content="编辑图片"
-            Click="EditImageButton_Click"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            Margin="16,144,16,16" />
+       
 	</Grid>
 </Page>

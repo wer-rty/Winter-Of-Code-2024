@@ -9,6 +9,7 @@
             <TextBox x:Name="UsernameTextBox" PlaceholderText="用户名" />
             <PasswordBox x:Name="PasswordBox" PlaceholderText="密码" />
             <PasswordBox x:Name="ConfirmPasswordBox" PlaceholderText="确认密码" />
+            <TextBox x:Name="CodeBox" PlaceholderText="请输入六位验证码" MaxLength="6" />
             <Button Content="注册" Click="RegisterButton_Click" HorizontalAlignment="Stretch" />
             <TextBlock x:Name="ErrorTextBlock" Foreground="Red" Visibility="Collapsed" TextWrapping="Wrap" />
         </StackPanel>

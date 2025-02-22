@@ -8,6 +8,7 @@ namespace SastImg.Client.Services;
 /// </summary>
 public class AuthService ( )
 {
+  
     private string? _token;
     private bool _isLoggedIn;
     private string? _username;

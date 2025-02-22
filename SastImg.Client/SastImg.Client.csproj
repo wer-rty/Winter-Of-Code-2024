@@ -32,12 +32,24 @@
         <PackageReference Include="CommunityToolkit.WinUI.Converters" Version="8.1.240916" />
         <PackageReference Include="CommunityToolkit.WinUI.Media" Version="8.1.240916" />
         <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
-        <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.250108002" />
+        <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.250205002" />
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
         <PackageReference Include="Refit" Version="8.0.0" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Services\API\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Views\ImageView.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </None>
+      <None Update="Views\RegisterView.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </None>
+      <None Update="Views\TestView.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </None>
     </ItemGroup>
 </Project>

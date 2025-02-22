@@ -34,4 +34,22 @@ public partial class ShellPageViewModel : ObservableObject
     {
         App.AuthService.Logout();
     });
+    public class ShellViewModel : ObservableObject
+    {
+        private string _userAvatarUrl;
+        public string UserAvatarUrl
+        {
+            get => _userAvatarUrl;
+            set => SetProperty(ref _userAvatarUrl, value);
+        }
+
+       
+    }
+
+  
+    public ICommand RegisterCommand => new RelayCommand(() =>
+    {
+        // 跳转到注册页面
+        App.Shell.MainFrame.Navigate(typeof(RegisterView));
+    });
 }

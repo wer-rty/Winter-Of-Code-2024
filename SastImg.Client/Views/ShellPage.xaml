@@ -44,11 +44,18 @@
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <NavigationViewItem
+                    Content="测试页面"
+                    Tag="Test">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE789;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem
                     Content="设置"
                     Icon="Setting"
                     Tag="Settings" />
             </NavigationView.FooterMenuItems>
-            <Frame x:Name="MainFrame" />
+            <Frame x:Name="MainFrame" x:FieldModifier="public" />
         </NavigationView>
 
         <Grid ui:UIElementExtensions.ClipToBounds="False">
@@ -82,6 +89,7 @@
                                     </cc:IconButton.Icon>
                                     查看资料
                                 </cc:IconButton>
+                               
                                 <cc:IconButton
                                     HorizontalAlignment="Stretch"
                                     Command="{x:Bind vm.LoginCommand}"
@@ -102,6 +110,16 @@
                                         <FontIcon Glyph="&#xE8A6;" />
                                     </cc:IconButton.Icon>
                                     退出登录
+                                </cc:IconButton>
+                                <cc:IconButton
+                                 HorizontalAlignment="Stretch"
+                                 Command="{x:Bind vm.RegisterCommand}"
+                                 Style="{StaticResource TransparentIconButtonStyle}"
+                                 Visibility="{x:Bind helper:BindHelper.BoolToVisibility(vm.IsLoggedIn, x:True), Mode=OneWay}">
+                                    <cc:IconButton.Icon>
+                                        <FontIcon Glyph="&#xE8A6;" />
+                                    </cc:IconButton.Icon>
+                                    注册
                                 </cc:IconButton>
 
                             </StackPanel>

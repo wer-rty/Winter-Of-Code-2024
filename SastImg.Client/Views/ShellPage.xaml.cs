@@ -1,4 +1,5 @@
 using System;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Windows.System;
 
@@ -31,8 +32,18 @@ public sealed partial class ShellPage : Page
                 case "GitHub":
                     await Launcher.LaunchUriAsync(new Uri("https://github.com/NJUPT-SAST-Csharp/Winter-Of-Code-2024"));
                     break;
+                case "Test":
+                    MainFrame.Navigate(typeof(TestView));
+                    break;
             }
         };
+    }
+    private void TitleBar_BackButtonClick(object sender, RoutedEventArgs e)
+    {
+        if (MainFrame.CanGoBack) // 判断是否可以返回
+        {
+            MainFrame.GoBack(); // 返回上一个页面
+        }
     }
 
 }

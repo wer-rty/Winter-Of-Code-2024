@@ -32,13 +32,7 @@ public partial class App : Application
         MainWindow.AppWindow.TitleBar.ButtonBackgroundColor = Colors.Transparent;
         MainWindow.Activate();
         WindowHelper.TrackWindow(MainWindow);
-        Shell = new ShellPage();
-        MainWindow = new Window()
-        {
-            SystemBackdrop = new MicaBackdrop(),
-            Title = "SAST Image",
-            Content = Shell
-        };
+       
     }
     public static ShellPage? Shell { get; private set; }
     

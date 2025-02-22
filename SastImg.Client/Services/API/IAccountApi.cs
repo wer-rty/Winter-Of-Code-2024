@@ -99,6 +99,7 @@ namespace SastImg.Client.Service.API
         /// </returns>
         [Get("/api/account/username/check")]
         Task<IApiResponse> CheckUsernameExistenceAsync([Query] string username, CancellationToken cancellationToken = default);
+       
     }
 
 }

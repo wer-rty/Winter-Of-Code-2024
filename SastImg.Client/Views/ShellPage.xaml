@@ -66,7 +66,7 @@
                 CompactStateBreakpoint="720"
                 DisplayMode="Tall"
                 IsBackButtonVisible="{x:Bind MainFrame.CanGoBack, Mode=OneWay}"
-                IsPaneButtonVisible="False"
+                IsPaneButtonVisible="True"
                 Subtitle="Dev"
                 Window="{x:Bind local:App.MainWindow}">
                 <controls:TitleBar.Icon>

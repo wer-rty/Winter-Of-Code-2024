@@ -14,6 +14,10 @@ using SastImg.Client.Service.API;
 
 namespace SastImg.Client.Service.API
 {
+    namespace SastImg.Client.Service.API.Requests
+    {
+       
+    }
     [System.CodeDom.Compiler.GeneratedCode("Refitter", "1.5.0.0")]
     [Headers("Authorization: Bearer")]
     public partial interface IImageApi
@@ -166,6 +170,20 @@ namespace SastImg.Client.Service.API
         [Headers("Accept: text/plain, application/json, text/json")]
         [Get("/api/albums/{albumId}/images/removed")]
         Task<IApiResponse<ICollection<ImageDto>>> GetRemovedImagesAsync(long albumId, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// 上传图片到指定相册
+        /// </summary>
+        /// <param name="albumId">相册 ID</param>
+        /// <param name="fileStream">图片文件流</param>
+        /// <param name="cancellationToken">取消令牌</param>
+        /// <returns>返回上传结果</returns>
+        [Multipart]
+        [Post("/api/albums/{albumId}/upload")]
+        Task<IApiResponse> UploadImageAsync(
+            long albumId,
+            StreamPart fileStream,
+            CancellationToken cancellationToken = default);
+       
     }
 
 }

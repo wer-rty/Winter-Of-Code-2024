@@ -35,9 +35,16 @@ namespace SastImg.Client.Service.API
         /// </item>
         /// </list>
         /// </returns>
-        [Multipart]
+        
         [Post("/api/albums/{albumId}/add")]
-        Task<IApiResponse> AddImageAsync(long albumId, [Query, AliasAs("Title")] string title, [Query(CollectionFormat.Multi), AliasAs("Tags")] IEnumerable<long> tags, StreamPart image, CancellationToken cancellationToken = default);
+        [Multipart]
+        Task<IApiResponse> AddImageAsync(
+        [Query] long albumId,
+        string title,
+        StreamPart image,
+        ICollection<long> tags,
+        CancellationToken cancellationToken = default
+        );
 
         /// <returns>
         /// A <see cref="Task"/> representing the <see cref="IApiResponse"/> instance containing the result:

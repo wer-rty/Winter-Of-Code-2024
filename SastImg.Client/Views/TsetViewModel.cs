@@ -16,6 +16,8 @@ namespace SastImg.Client.Views
         // 图片列表
         public ObservableCollection<ImageDto> Images { get; } = new();
 
+      
+
         // 选中的图片
         [ObservableProperty]
         private ImageDto? selectedImage;
@@ -24,13 +26,19 @@ namespace SastImg.Client.Views
         [RelayCommand]
         public async Task GetAllImagesAsync()
         {
+           
             Images.Clear();
             var imagesRequest = await App.API!.Image.GetImagesAsync(null, null, null);
-            if (!imagesRequest.IsSuccessful) return; // 如果获取失败，直接返回
+            if (!imagesRequest.IsSuccessful)
+            {
+                 // 如果获取失败，返回
+                return;
+            }
 
             foreach (var image in imagesRequest.Content)
             {
                 Images.Add(image);
+               
             }
         }
     }

@@ -7,6 +7,11 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using System.IO;
 using System.Threading.Tasks;
 using SastImg.Client.Service.API;
+using System.ComponentModel;
+using System.Diagnostics;
+using Windows.Storage;
+using System.Net.Http.Headers;
+using Windows.Storage.Streams;
 
 namespace SastImg.Client.Views
 {
@@ -15,6 +20,7 @@ namespace SastImg.Client.Views
         // 图片数据（使用 ObservableProperty 自动生成属性）
         [ObservableProperty]
         private byte[]? imageData;
+
 
         // 获取指定 ID 的图片
         public async Task<bool> ShowImageAsync(long id)
@@ -27,8 +33,9 @@ namespace SastImg.Client.Views
             using var memoryStream = new MemoryStream();
             await imageResponse.Content.CopyToAsync(memoryStream);
             ImageData = memoryStream.ToArray();
-
             return true;
         }
+
+
     }
 }

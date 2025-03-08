@@ -1,0 +1,18 @@
+﻿<Page x:Class="SastImg.Client.Views.UploadImagePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      >
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="10">
+            <!-- 相册选择 -->
+            <ComboBox x:Name="AlbumComboBox"
+					   
+                      PlaceholderText="请选择相册" />
+
+            <!-- 上传按钮 -->
+            <Button Content="选择图片并上传" Click="UploadButton_Click" />
+        </StackPanel>
+    </Grid>
+</Page>

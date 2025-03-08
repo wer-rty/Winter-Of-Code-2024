@@ -9,21 +9,45 @@
 
 	<Grid>
 		<!-- 返回按钮 -->
-		<Button
+        <Button
             Width="48"
             Height="48"
             Margin="24"
             VerticalAlignment="Top"
             HorizontalAlignment="Left"
             Click="Button_Click">
-			Back
-		</Button>
+            Back
+        </Button>
+       
 
-		<!-- 图片显示 -->
-		<Image
+        <!--图片显示--> 
+        <Image
             x:Name="img"
+            Margin="24,96,24,24"
             Stretch="Uniform"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"/>
-	</Grid>
+        <!-- 加载提示 -->
+        <Grid
+            x:Name="loadingPanel"
+            Background="#CCFFFFFF"
+            Visibility="Collapsed">
+            <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <ProgressRing
+                    Width="50"
+                    Height="50"
+                    IsActive="True" />
+                <TextBlock
+                    Margin="0,12,0,0"
+                    Text="加载中..."
+                    HorizontalAlignment="Center"
+                    FontSize="16" />
+            </StackPanel>
+        </Grid>
+             
+        
+
+    </Grid>
 </Page>

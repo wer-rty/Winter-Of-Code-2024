@@ -40,7 +40,7 @@ namespace SastImg.Client.Service.API
         /// </returns>
         [Headers("Accept: text/plain, application/json, text/json")]
         [Post("/api/albums")]
-        Task<IApiResponse<int>> CreateAlbumAsync([Body] CreateAlbumRequest body, CancellationToken cancellationToken = default);
+        Task<IApiResponse<long>> CreateAlbumAsync([Body] CreateAlbumRequest body, CancellationToken cancellationToken = default);
 
         /// <returns>
         /// A <see cref="Task"/> representing the <see cref="IApiResponse"/> instance containing the result:

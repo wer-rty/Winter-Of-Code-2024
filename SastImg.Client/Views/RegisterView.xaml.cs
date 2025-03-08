@@ -20,8 +20,6 @@ namespace SastImg.Client.Views
             string confirmPassword = ConfirmPasswordBox.Password;
             string code = CodeBox.Text;
 
-
-
             // 验证输入
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {

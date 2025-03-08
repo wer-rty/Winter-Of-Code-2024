@@ -33,6 +33,15 @@
                     Content="主页"
                     Icon="Home"
                     Tag="Home" />
+                <!-- 添加“创建相册”按钮 -->
+                <NavigationViewItem
+                  Content="创建相册"
+                  Icon="Add"
+                 Tag="CreateAlbum" />
+                <NavigationViewItem
+                   Content="上传图片"
+                   Icon="upload"
+                   Tag="UploadImagePage"/>
             </NavigationView.MenuItems>
             <NavigationView.FooterMenuItems>
                 <NavigationViewItem

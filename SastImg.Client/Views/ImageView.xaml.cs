@@ -12,6 +12,10 @@ using System.Threading.Tasks;
 using SastImg.Client.Service.API;
 using Microsoft.UI.Xaml.Navigation;
 using Microsoft.UI.Xaml.Media;
+using Windows.Storage.Pickers;
+using Windows.Storage;
+using System.Diagnostics;
+using Refit;
 
 namespace SastImg.Client.Views
 {
@@ -30,6 +34,10 @@ namespace SastImg.Client.Views
                 }
             };
         }
+
+
+
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (App.Shell?.MainFrame.CanGoBack == true) // 判断是否可以返回
@@ -38,14 +46,31 @@ namespace SastImg.Client.Views
             }
         }
 
+
+
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             if (e.Parameter is long imageId)
             {
-                await ViewModel.ShowImageAsync(imageId); // 加载图片
+                // 显示加载提示
+                ShowLoadingPanel(true);
+
+                try
+                {
+                    await ViewModel.ShowImageAsync(imageId); // 加载图片
+                }
+                catch (Exception ex)
+                {
+                    // 处理异常（例如记录日志或显示错误消息）
+                    Debug.WriteLine($"加载图片失败: {ex.Message}");
+                }
+                finally
+                {
+                    // 隐藏加载提示
+                    ShowLoadingPanel(false);
+                }
             }
         }
-
         private async Task UpdateImageAsync()
         {
             if (ViewModel.ImageData is null)
@@ -59,5 +84,13 @@ namespace SastImg.Client.Views
             await bitmap.SetSourceAsync(stream.AsRandomAccessStream());
             img.Source = bitmap;
         }
-    }
+        private void ShowLoadingPanel(bool isVisible)
+        {
+            // 控制加载提示的显示和隐藏
+            loadingPanel.Visibility = isVisible ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+       
+    }    
+
 }

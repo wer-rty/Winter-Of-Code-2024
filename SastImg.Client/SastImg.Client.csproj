@@ -18,6 +18,11 @@
 
     <ItemGroup>
         <Content Include="Assets\**" />
+    
+     
+       
+   
+        
         <Manifest Include="$(ApplicationManifest)" />
         <ProjectCapability Include="Msix" />
         <PackageReference Include="CommunityToolkit.Labs.WinUI.TitleBar" Version="0.0.1-build.1830" />
@@ -42,14 +47,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="Views\ImageView.xaml">
-        <Generator>MSBuild:Compile</Generator>
-      </None>
-      <None Update="Views\RegisterView.xaml">
-        <Generator>MSBuild:Compile</Generator>
-      </None>
-      <None Update="Views\TestView.xaml">
+      <None Update="Views\UploadImagePage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </None>
     </ItemGroup>
+
 </Project>

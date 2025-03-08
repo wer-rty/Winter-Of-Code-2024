@@ -9,6 +9,7 @@
 
 	<Grid>
         <ListView
+            ItemClick="OnSelectionChanged"
             x:Name="image_list"
             ItemsSource="{x:Bind ViewModel.Images}"
             IsItemClickEnabled="True">

@@ -26,6 +26,12 @@ public sealed partial class ShellPage : Page
                 case "Home":
                     MainFrame.Navigate(typeof(HomeView));
                     break;
+                case "CreateAlbum":
+                    MainFrame.Navigate(typeof(CreateAlbumPage));
+                    break;
+                case "UploadImagePage":
+                    MainFrame.Navigate(typeof(UploadImagePage));
+                    break;
                 case "Settings":
                     MainFrame.Navigate(typeof(SettingsView));
                     break;

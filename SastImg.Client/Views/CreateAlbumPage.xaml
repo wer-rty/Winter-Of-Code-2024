@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="SastImg.Client.Views.CreateAlbumPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+	<Grid>
+		<StackPanel
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Spacing="16">
+            
+			<TextBox
+                x:Name="AlbumNameTextBox"
+                Header="相册名称"
+                PlaceholderText="请输入相册名称"
+                Width="300" />
+
+            <TextBox
+                x:Name="AlbumDescriptionTextBox"
+                Header="相册描述"
+                PlaceholderText="请输入相册描述"
+                Width="300" />
+
+            <Button
+                Content="创建相册"
+                Click="CreateAlbumButton_Click"
+                HorizontalAlignment="Stretch" />
+			
+		</StackPanel>
+	</Grid>
+</Page>

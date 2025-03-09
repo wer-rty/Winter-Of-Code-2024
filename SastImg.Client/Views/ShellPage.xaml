@@ -37,11 +37,15 @@
                 <NavigationViewItem
                   Content="创建相册"
                   Icon="Add"
-                 Tag="CreateAlbum" />
+                  Tag="CreateAlbum" />
                 <NavigationViewItem
-                   Content="上传图片"
-                   Icon="upload"
-                   Tag="UploadImagePage"/>
+                  Content="上传图片"
+                  Icon="upload"
+                  Tag="UploadImagePage"/>
+                <NavigationViewItem
+                  Content="回收站"
+                  Icon="Delete"
+                  Tag="RemoveAlbumPage"/>
             </NavigationView.MenuItems>
             <NavigationView.FooterMenuItems>
                 <NavigationViewItem

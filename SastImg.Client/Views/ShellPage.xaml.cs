@@ -29,6 +29,9 @@ public sealed partial class ShellPage : Page
                 case "CreateAlbum":
                     MainFrame.Navigate(typeof(CreateAlbumPage));
                     break;
+                case "RemoveAlbumPage":
+                    MainFrame.Navigate(typeof(RemoveAlbumPage));
+                    break;
                 case "UploadImagePage":
                     MainFrame.Navigate(typeof(UploadImagePage));
                     break;

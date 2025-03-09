@@ -18,6 +18,7 @@
 
     <ItemGroup>
         <Content Include="Assets\**" />
+      
     
      
        
@@ -47,6 +48,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <None Update="Views\RemoveAlbumPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </None>
       <None Update="Views\UploadImagePage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </None>

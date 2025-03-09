@@ -27,4 +27,5 @@ public sealed partial class HomeView : Page
             Frame.Navigate(typeof(AlbumDetailView), album.Id);
         }
     }
+    
 }

@@ -31,9 +31,9 @@ namespace SastImg.Client.Views
         {
             if (e.ClickedItem is ImageDto image)
             {
-                            
+
                 // 跳转到 ImageAlone 页面，并传递图片信息
-                Frame.Navigate(typeof(ImageAlone), image);
+                App.Shell.MainFrame.Navigate(typeof(ImageAlone), image);
             }
         }
         

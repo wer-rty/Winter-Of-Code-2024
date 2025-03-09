@@ -1,4 +1,5 @@
-﻿using Microsoft.UI.Xaml.Controls;
+﻿using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Imaging;
 using Microsoft.UI.Xaml.Navigation;
 using SastImg.Client.Service.API;
@@ -14,40 +15,47 @@ namespace SastImg.Client.Views
 {
     public sealed partial class ImageAlone : Page
     {
-        public ObservableCollection<ImageDto> Images { get; } = new();
         public ImageAlone()
         {
             this.InitializeComponent();
         }
-       
-        public async Task GetImagesAsync()
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-
-            Images.Clear();
-            var imagesRequest = await App.API!.Image.GetImagesAsync(null, null, null);
-            if (!imagesRequest.IsSuccessful)
+            if (e.Parameter is ImageDto image)
             {
-                // 如果获取失败，返回
-                return;
-            }
+                         
+                    // 加载图片数据
+                    var imageResponse = await App.API.Image.GetImageAsync(image.Id, 0); 
+                    if (imageResponse.IsSuccessful)
+                    {
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await imageResponse.Content.CopyToAsync(memoryStream);
+                        byte[] imageData = memoryStream.ToArray();
 
-            foreach (var image in imagesRequest.Content)
-            {
-                Images.Add(image);
-
+                        // 将 byte[] 转换为 BitmapImage
+                        using (var stream = new MemoryStream(imageData))
+                        {
+                            var bitmap = new BitmapImage();
+                            await bitmap.SetSourceAsync(stream.AsRandomAccessStream());
+                            ImageControl.Source = bitmap;
+                        }
+                    }
+                }
+                   
             }
         }
-        private async Task LoadImageAsync(byte[] imageData)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // 将 byte[] 转换为 BitmapImage
-            using (var stream = new MemoryStream(imageData))
+            if (App.Shell?.MainFrame.CanGoBack == true) // 判断是否可以返回
             {
-                var bitmap = new BitmapImage();
-                await bitmap.SetSourceAsync(stream.AsRandomAccessStream());
-                ImageControl.Source = bitmap;
+                App.Shell.MainFrame.GoBack(); // 返回上一个页面
             }
         }
-
 
     }
+    
+
 }
+

@@ -1,4 +1,5 @@
-﻿using SastImg.Client.Service.API;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using SastImg.Client.Service.API;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,9 +15,9 @@ namespace SastImg.Client.Views
     {
        
         public ObservableCollection<ImageDto> Images { get; } = new();
-       
 
-       
+      
+
         public async Task LoadAlbumAsync(long albumId)
         {
             Images.Clear();

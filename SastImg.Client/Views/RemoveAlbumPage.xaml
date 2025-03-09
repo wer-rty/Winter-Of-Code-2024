@@ -1,18 +1,21 @@
-﻿<Page x:Class="SastImg.Client.Views.UploadImagePage"
+﻿<Page x:Class="SastImg.Client.Views.RemoveAlbumPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      >
+    >
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="10">
             <!-- 相册选择 -->
             <ComboBox x:Name="AlbumComboBox"
-					  ItemsSource="{x:Bind ViewModel.Albums}"                     
+                      ItemsSource="{x:Bind ViewModel.Albums}"
                       SelectedIndex="{Binding SelectedAlbumIndex, Mode=TwoWay}"
                       PlaceholderText="请选择相册" />
-            <!-- 上传按钮 -->
-            <Button Content="选择图片并上传" Click="UploadButton_Click" />
-        </StackPanel>
+            <!-- 删除按钮 -->
+            <Button Content="删除相册" Click="DeleteButton_Click"  />
+            <!-- 状态提示 -->
+            <TextBlock x:Name="StatusTextBlock" Foreground="Red" TextWrapping="Wrap" />
+		</StackPanel>
+		
     </Grid>
 </Page>
